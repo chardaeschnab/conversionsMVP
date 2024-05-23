@@ -1,7 +1,13 @@
-var express = require('express');
-var router = express.Router();
-const db = require("../model/helper");
 const stepMustExist = require("../guards/stepMustExist");
+var express = require("express");
+var router = express.Router();
+var jwt = require("jsonwebtoken");
+// var userMustBeLoggedIn = require("../guards/userMustBeLoggedIn");
+var db = require("../model/helper");
+require("dotenv").config();
+var bcrypt = require("bcrypt");
+const saltRounds = 10;
+const supersecret = process.env.SUPER_SECRET;
 
 /* GET home page. */
 // router.get('/', function(req, res, next) {
@@ -9,12 +15,12 @@ const stepMustExist = require("../guards/stepMustExist");
 // });
 
 // GET steps list
-router.get("/", function(req, res, next) {
+router.get("/", function (req, res, next) {
   db("SELECT * FROM steps;")
-    .then(results => {
+    .then((results) => {
       res.send(results.data);
     })
-    .catch(err => res.status(500).send(err));
+    .catch((err) => res.status(500).send(err));
 });
 
 //GET steps by ID
@@ -44,13 +50,12 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-
 //Update object in steps
-router.put("/:id", stepMustExist, async (req, res) =>{
-  const put =`UPDATE steps SET Description ='${req.body.Description}',Next_1=${req.body.Next_1},Next_2=${req.body.Next_2},Next_3=${req.body.Next_3},Text_1='${req.body.Text_1}',Text_2='${req.body.Text_2}',Text_3='${req.body.Text_3}' WHERE id=${req.params.id};`;
+router.put("/:id", stepMustExist, async (req, res) => {
+  const put = `UPDATE steps SET Description ='${req.body.Description}',Next_1=${req.body.Next_1},Next_2=${req.body.Next_2},Next_3=${req.body.Next_3},Text_1='${req.body.Text_1}',Text_2='${req.body.Text_2}',Text_3='${req.body.Text_3}' WHERE id=${req.params.id};`;
   console.log(put);
   const select = `SELECT * FROM steps;`;
-  try{
+  try {
     await db(put);
     const result = await db(select);
     res.send(result.data);
@@ -59,14 +64,8 @@ router.put("/:id", stepMustExist, async (req, res) =>{
   }
 });
 
-
-
-
-
-
 // DELETE a step from the DB
 router.delete("/:id", stepMustExist, async (req, res) => {
-  
   const del = `DELETE FROM steps WHERE id = ${req.params.id}`;
   const select = `SELECT * FROM steps;`;
   try {
