@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-export default function Admin() {
+export default function Create() {
   const [description, setDescription] = useState("");
   const [steps, setSteps] = useState([]);
 
@@ -10,10 +10,11 @@ export default function Admin() {
       const result = await fetch("/api/steps", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ description }),
+        body: JSON.stringify({ Description: description }),
       });
       const step = await result.json();
-      setSteps(step);
+      console.log(steps);
+      setSteps(steps);
     } catch (err) {
       console.log({ message: err });
     }

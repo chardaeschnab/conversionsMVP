@@ -14,7 +14,7 @@ const supersecret = process.env.SUPER_SECRET;
 //     res.send({ message : "Paint Steps"})
 // });
 
-// GET steps list
+// GET steps list (used for AdminList page)
 router.get("/", function (req, res, next) {
   db("SELECT * FROM steps;")
     .then((results) => {
@@ -37,7 +37,13 @@ router.get("/:id", stepMustExist, async (req, res) => {
 
 // INSERT a new step into the DB
 router.post("/", async (req, res, next) => {
-  const query = ` INSERT INTO steps (Description, Next_1, Next_2, Next_3, Text_1, Text_2, Text_3) VALUES ("${req.body.Description}", "${req.body.Next_1}","${req.body.Next_2}","${req.body.Next_3}","${req.body.Text_1}","${req.body.Text_2}","${req.body.Text_3}");`;
+  const query = ` INSERT INTO steps (Description, Next_1, Next_2, Next_3, Text_1, Text_2, Text_3) VALUES ("${
+    req.body.Description
+  }", "${req.body.Next_1 || 0}","${req.body.Next_2 || 0}","${
+    req.body.Next_3 || 0
+  }","${req.body.Text_1 || ""}","${req.body.Text_2 || ""}","${
+    req.body.Text_3 || ""
+  }");`;
   const select = `SELECT * FROM steps`;
 
   try {
@@ -51,9 +57,22 @@ router.post("/", async (req, res, next) => {
 });
 
 //Update object in steps
+// router.put("/:id", stepMustExist, async (req, res) => {
+//   const put = `UPDATE steps SET Description ='${req.body.Description}',Next_1=${req.body.Next_1},Next_2=${req.body.Next_2},Next_3=${req.body.Next_3},Text_1='${req.body.Text_1}',Text_2='${req.body.Text_2}',Text_3='${req.body.Text_3}' WHERE id=${req.params.id};`;
+//   console.log(put);
+//   const select = `SELECT * FROM steps;`;
+//   try {
+//     await db(put);
+//     const result = await db(select);
+//     res.send(result.data);
+//   } catch (err) {
+//     res.status(500).send(err);
+//   }
+// });
+
 router.put("/:id", stepMustExist, async (req, res) => {
-  const put = `UPDATE steps SET Description ='${req.body.Description}',Next_1=${req.body.Next_1},Next_2=${req.body.Next_2},Next_3=${req.body.Next_3},Text_1='${req.body.Text_1}',Text_2='${req.body.Text_2}',Text_3='${req.body.Text_3}' WHERE id=${req.params.id};`;
-  console.log(put);
+  const put = `UPDATE steps SET Description ='${req.body.Description}' WHERE id=${req.params.id};`;
+  console.log(req);
   const select = `SELECT * FROM steps;`;
   try {
     await db(put);

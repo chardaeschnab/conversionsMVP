@@ -1,21 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  @font-face {
-    font-family: "Major Mono Display", monospace;
-    src: url("https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap");
-  }
-}
-
-@layer base {
-  @font-face {
-    font-family: "Vercetti-Regular";
-    src: url("./fonts/Vercetti-Regular.ttf") format("truetype");
-  }
-}
-
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -25,7 +7,7 @@ a {
   color: #00b7ff;
 }
 
-.edit-button {
+.admin-list-button {
   background-color: #3b82f6; /* Adjust color as needed */
   color: white;
   padding: 10px 20px;
@@ -34,7 +16,6 @@ a {
   font-weight: bold;
   cursor: pointer; /* Indicate clickable element */
   margin: 5px; /* Add some space between buttons */
-  size: sm;
 }
 
 .admin-list-button:hover {

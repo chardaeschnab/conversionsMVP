@@ -8,7 +8,8 @@ export default function Start() {
         <div className="flex flex-col justify-center items-center m-4 w-2/3">
           <div className="p-4 flex flex-col justify-center items-center bg-white bg-opacity-80 backdrop-blur-md shadow-sharp min-h-64">
             <div className="text-center leading-relaxed font-vercelli flex flex-col justify-center w-full">
-              <Link to="/admin">Admin Page</Link>
+              <Link to="/create">Create</Link>
+              <Link to="/admin">Admin List</Link>
               <p className="text-3xl md:text-5xl font-semibold m-4">
                 SO YOU NEED TO PAINT SOMETHING?!
               </p>

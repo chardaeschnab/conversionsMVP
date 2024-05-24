@@ -6,7 +6,7 @@ const cors = require("cors");
 
 var stepsRouter = require("./routes/steps");
 var authRouter = require("./routes/auth");
-var adminRouter = require("./routes/admin");
+
 
 var app = express();
 app.use(cors());
@@ -19,5 +19,4 @@ app.use(cookieParser());
 
 app.use("/api/steps", stepsRouter);
 app.use("/api/auth", authRouter);
-app.use("/api/admin", adminRouter);
 module.exports = app;

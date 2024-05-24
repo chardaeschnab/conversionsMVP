@@ -6,7 +6,9 @@ import { Routes, Route } from "react-router-dom"; //import Routes and Route from
 import Start from "./pages/Start";
 import Step from "./pages/Step";
 import FooterNavbar from "./components/FooterNavbar";
-import Admin from "./pages/Admin";
+import AdminList from "./pages/AdminList";
+import Create from "./pages/Create";
+import Edit from "./pages/Edit";
 
 function App() {
   return (
@@ -22,7 +24,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Start />} />
             <Route path="/steps/:id" element={<Step />} />
-            <Route path="/admin" element={<Admin />} />
+            <Route path="/admin" element={<AdminList />} />
+            <Route path="/create" element={<Create />} />
+            <Route path="/steps/:id/edit" element={<Edit />} />
           </Routes>
         </div>
         <FooterNavbar />
