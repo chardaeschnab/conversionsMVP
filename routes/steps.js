@@ -71,7 +71,7 @@ router.post("/", async (req, res, next) => {
 // });
 
 router.put("/:id", stepMustExist, async (req, res) => {
-  const put = `UPDATE steps SET Description ='${req.body.Description}' WHERE id=${req.params.id};`;
+  const put = `UPDATE steps SET Description ='${req.body.Description}', Next_1='${req.body.Next_1}', Text_1='${req.body.Text_1}' WHERE id=${req.params.id};`;
   console.log(req);
   const select = `SELECT * FROM steps;`;
   try {

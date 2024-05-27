@@ -10,6 +10,7 @@ import AdminList from "./pages/AdminList";
 import Create from "./pages/Create";
 import Edit from "./pages/Edit";
 
+
 function App() {
   return (
     <>
@@ -26,7 +27,7 @@ function App() {
             <Route path="/steps/:id" element={<Step />} />
             <Route path="/admin" element={<AdminList />} />
             <Route path="/create" element={<Create />} />
-            <Route path="/steps/:id/edit" element={<Edit />} />
+            <Route path="/steps/:id/edit" element={<Edit />} />          
           </Routes>
         </div>
         <FooterNavbar />

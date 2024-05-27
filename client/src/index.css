@@ -40,3 +40,13 @@ a {
 .admin-list-button:hover {
   background-color: #2860d3; /* Change hover color */
 }
+
+.dropdown-toggle {
+  background-color: #ddd;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  cursor: pointer;
+  z-index: 999;
+}
+
+
