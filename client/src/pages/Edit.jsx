@@ -69,7 +69,15 @@ export default function Edit() {
                   onChange={handleInputChange}
                 />
                 <br />
-                <h5>Next step in process:</h5>
+                <h5>Possibility 1:</h5>
+                <textarea
+                  type="text"
+                  id="Text_1"
+                  name="Text_1"
+                  value={step.Text_1}
+                  onChange={handleInputChange}
+                />
+                <br />
                 <select
                   className="dropdown-list"
                   onChange={handleInputChange}
@@ -88,20 +96,69 @@ export default function Edit() {
                 </select>
                 <br />
                 <br />
+
+                <h5>Possibility 2:</h5>
                 <textarea
                   type="text"
-                  id="Text_1"
-                  name="Text_1"
-                  value={step.Text_1}
+                  id="Text_2"
+                  name="Text_2"
+                  value={step.Text_2}
                   onChange={handleInputChange}
                 />
+                <br />
+                <select
+                  className="dropdown-list"
+                  onChange={handleInputChange}
+                  name="Next_2"
+                  value={step.Next_2}
+                >
+                  {allSteps.map((step) => (
+                    <option
+                      key={step.id}
+                      value={step.id}
+                      className="dropdown-item"
+                    >
+                      {step.Description}
+                    </option>
+                  ))}
+                </select>
+                <br />
+                <br />
+
+                <h5>Possibility 3:</h5>
+                <textarea
+                  type="text"
+                  id="Text_3"
+                  name="Text_3"
+                  value={step.Text_3}
+                  onChange={handleInputChange}
+                />
+                <br />
+                <select
+                  className="dropdown-list"
+                  onChange={handleInputChange}
+                  name="Next_3"
+                  value={step.Next_3}
+                >
+                  {allSteps.map((step) => (
+                    <option
+                      key={step.id}
+                      value={step.id}
+                      className="dropdown-item"
+                    >
+                      {step.Description}
+                    </option>
+                  ))}
+                </select>
+                <br />
+                <br />
+
                 <button type="submit">Submit Edit</button>
               </div>
             </div>
           </div>
         </div>
       </form>
-      <button>TESTING</button>
     </div>
   );
 }

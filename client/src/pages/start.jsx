@@ -36,6 +36,23 @@ export default function Start() {
                   STEEL
                 </div>
               </Link>
+
+              <Link to="/steps/28">
+                <div
+                  className="p-4 font-extrabold text-3xl md:text-5xl inline-block drop-shadow-lg hover:scale-105 hover:text-orange-900"
+                  style={{ textShadow: "0px 3px 5px rgba(124, 45, 18, 0.8)" }}
+                >
+                  WOOD
+                </div>
+              </Link>
+              <Link to="/steps/32">
+                <div
+                  className="p-4 font-extrabold text-3xl md:text-5xl inline-block drop-shadow-lg hover:scale-105 hover:text-orange-900"
+                  style={{ textShadow: "0px 3px 5px rgba(124, 45, 18, 0.8)" }}
+                >
+                  PLASTIC
+                </div>
+              </Link>
             </div>
           </div>
         </div>
