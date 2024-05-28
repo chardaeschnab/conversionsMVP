@@ -28,7 +28,7 @@ export default function Start() {
           <div className="p-4 bg-white bg-opacity-50 backdrop-blur-md flex items-center justify-center shadow-sharp min-h-40">
             <div className="text-center leading-relaxed font-vercetti flex flex-col justify-center font-semibold tracking-widest text-l md:text-xl">
               <p>Follow me to paint some</p>
-              <Link to="/steps/1">
+              <Link to="/steps/47">
                 <div
                   className="p-4 font-extrabold text-3xl md:text-5xl inline-block drop-shadow-lg hover:scale-105 hover:text-orange-900"
                   style={{ textShadow: "0px 3px 5px rgba(124, 45, 18, 0.8)" }}
@@ -37,7 +37,7 @@ export default function Start() {
                 </div>
               </Link>
 
-              <Link to="/steps/28">
+              <Link to="/steps/48">
                 <div
                   className="p-4 font-extrabold text-3xl md:text-5xl inline-block drop-shadow-lg hover:scale-105 hover:text-orange-900"
                   style={{ textShadow: "0px 3px 5px rgba(124, 45, 18, 0.8)" }}

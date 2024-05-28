@@ -5,7 +5,7 @@ import DropdownMenu from "../components/DropdownMenu";
 
 export default function Edit() {
   const [allSteps, setAllSteps] = useState([]);
-  const [step, setStep] = useState({});
+  const [step, setStep] = useState({})
   const { id } = useParams();
 
   useEffect(() => {
@@ -45,6 +45,7 @@ export default function Edit() {
     } catch (error) {
       console.error("Error submitting edit");
     }
+    alert("Submission successful");
   };
 
   function handleInputChange(event) {
